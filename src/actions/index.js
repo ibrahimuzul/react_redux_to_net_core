@@ -5,12 +5,13 @@ export const FETCH_POST = 'fetch_post';
 export const CREATE_POST = 'create_post';
 export const DELETE_POST = 'delete_post';
 
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api'
+//const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
+const ROOT_URL = 'https://localhost:44306/api';
 const API_KEY = '?key=ibr123';
 
 export function fetchPosts() {
-    const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
-
+   // const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+   const request = axios.get(`${ROOT_URL}/blog`);
     return {
         type: FETCH_POSTS,
         payload: request
@@ -18,7 +19,7 @@ export function fetchPosts() {
 }
 
 export function createPost(values, callback) {
-    const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
+    const request = axios.post(`${ROOT_URL}/blog`, values)
     .then(()=> callback());
 
     return {
@@ -28,7 +29,7 @@ export function createPost(values, callback) {
 }
 
 export function fetchPost(id){
-    const request = axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
+    const request = axios.get(`${ROOT_URL}/blog/${id}`);
 
     return {
         type: FETCH_POST,
@@ -37,7 +38,7 @@ export function fetchPost(id){
 }
 
 export function deletePost(id,callback){
-    const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+    const request = axios.delete(`${ROOT_URL}/blog/${id}`)
     .then(()=> callback());
 
     return {
