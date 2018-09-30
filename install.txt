@@ -1,0 +1,8 @@
+npm install
+npm start   ya da npm run start
+npm install --save react-router-dom@4.2.2           eskisi npm install --save react-router@4.0.0
+
+
+
+
+74
