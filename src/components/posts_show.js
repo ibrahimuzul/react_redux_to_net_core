@@ -33,6 +33,14 @@ class PostsShow extends Component {
                 >
                     Delete Post
                 </button>
+                <div className="text-xs-right">
+                    <Link className="btn btn-primary" to={{
+                        pathname:'/posts/new',
+                        search:  `id=${post.id}`
+                }} >
+                        Update Post
+                    </Link>
+                </div>
                 <h3>{post.title}</h3>
                 <h6>Categories: {post.categories}</h6>
                 <p>{post.content}</p>

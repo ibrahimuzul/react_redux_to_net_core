@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_POST = 'fetch_post';
 export const CREATE_POST = 'create_post';
+export const UPDATE_POST = 'update_post';
 export const DELETE_POST = 'delete_post';
 
 //const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
@@ -24,6 +25,16 @@ export function createPost(values, callback) {
 
     return {
         type: CREATE_POST,
+        payload: request
+    };
+}
+
+export function updatePost(values, callback) {
+    const request = axios.put(`${ROOT_URL}/blog`, values)
+    .then(()=> callback());
+
+    return {
+        type: UPDATE_POST,
         payload: request
     };
 }
